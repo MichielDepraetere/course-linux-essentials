@@ -281,30 +281,37 @@ Try to solve the challenges without making use of the Internet.
 
 Mark challenges using a ✅ once they are finished.
 
-### ❌ The whoami command
+### ✅ The whoami command
 
 **Describe in your own words what the `whoami` command does.**
+The `whoami` command prints your current username to the terminal.
 
-### ❌ The uptime command
+### ✅ The uptime command
 
 **Describe in your own words what the `uptime` command does.**
+It tells you the time, runtime of the program, number of users and load average.
 
-### ❌ Help on ls
+### ✅ Help on ls
 
 **`ls` can be used to list the files and directories in Linux. If you execute the command `ls -h` you do not get any help about the command. How come? What does `ls -h` actually do?**
+It makes the output human readable. For example 3771 will be show as 3.7K if you use the option '-h'
 
-### ❌ Hidden files
+### ✅ Hidden files
 
 **Linux harbors some hidden files which are not automatically listed when executing `ls`. Find out how to list hidden files. How can we recognize hidden files?**
+With the 'ls -a' or the 'ls --all' command you can list hidden files. Hidden files are prefixed with a dot.
 
-### ❌ The man command
+### ✅ The man command
 
 **Describe in your own words what the `man` command does.**
+With the 'man' command you can request manual pages. You can add arguments to man to display the manual page associated with each of these arguments.
 
-### ❌ What shells are available
+### ✅ What shells are available
 
 **Check the Internet on how you can get a list of all available shells on your system.**
+With the command: 'cat /etc/shells'.
 
-### ❌ What date is it
+### ✅ What date is it
 
 **How would you request the current date and time via the terminal?**
+With the command: 'date'.
