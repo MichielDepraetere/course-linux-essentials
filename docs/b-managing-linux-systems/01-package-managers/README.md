@@ -291,6 +291,10 @@ Mark challenges using a ✅ once they are finished.
 console.log("Hello World from JavaScript");
 ```
 
+With the following command: "snap install nodejs",
+This is the output: "Interacting with snapd is not yet supported on Windows Subsystem for Linux.
+This command has been left available for documentation purposes only."
+
 ### ❌ Dhcpdump
 
 *Install the `dhcpdump` and try to capture some DHCP traffic in the network. Work together with another student and try to capture the DHCP request of his/her laptop. Find out what the MAC Address is and check it using the `ip` or `ipconfig` tool.*

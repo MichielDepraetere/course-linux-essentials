@@ -187,41 +187,74 @@ Find all the info you need in the man-pages. Make sure to comment the commands y
 
 Mark challenges using a ✅ once they are finished.
 
-### ❌ The free command
+### ✅ The free command
 
 *Describe in your own words what the `free` command does. Give an example and a partial output.*
 
-### ❌ The id command
+The free command tells us specifications about the space in our memory and swap.
+These specs are: total, used, free, shared, buff/cache and available.
+              total        used        free      shared  buff/cache
+Mem:        8237880     5321620     2686908       17720      229352
+
+### ✅ The id command
 
 *Describe in your own words what the `id` command does. Give an example and a partial output.*
 
-### ❌ The tree command
+It prints the name and group information of the user.
+
+### ✅ The tree command
 
 *Describe in your own words what the `tree` command does. How do you list all subdirectories too? How can you only include directories? If the `tree` command is not available on your system you can install it using `sudo apt install tree`*
 
-### ❌ The which command
+The tree command shows the hierarchy of the directories and the files.
+To list them all you can use the -a option.
+
+### ✅ The which command
 
 *Describe in your own words what the `which` command does. What is the result for `pwd` ?*
 
-### ❌ The file command
+The which command returns the pathnames of the files which would be executed in the current enviroment.
+The result for `pwd` is: /home/michiel
+The result for `which pwd` is: /usr/bin/pwd
+
+### ✅ The file command
 
 *Describe in your own words what the `file` command does. What is the result for `~/.bashrc` ?*
 
-### ❌ The type command
+The file command tests arguments to classify them. The tests are: filesystem test, magic tests and language tests. The first test that succeeds prints the file type.
+The result for `~/.bashrc` is: -bash: /home/michiel/.bashrc: Permission denied
+The result for `file ~/.bashrc` is: /home/michiel/.bashrc: ASCII text
+
+### ✅ The type command
 
 *Describe in your own words what the `type` command does. What is the result for `ls` and what is the result for `g++` ?*
 
-### ❌ Counting lines and words
+It gives us information about the command type: indicate how it would be interpreted if used as a command name. Shows full names of aliases.
+The result for `type ls` is: ls is aliased to `ls --color=auto'
+The result for `type g++` is: g++ is hashed (/usr/bin/g++)
+
+### ✅ Counting lines and words
 
 *What command can be used to count lines and words in text? Give an example and explain the output.*
 
-### ❌ The wget command
+The `wc` command.
+The output of `wc index.html` is: 681   5042 111876 index.html
+681 is the number of lines in the index.html file.
+5042 is the number of words in the index.html file.
+111876 is the number of characters in the index.html file.
+
+### ✅ The wget command
 
 *How can you download a file from the Internet using the command line?. Find a file online to use it on and demonstrate its usage.*
 
-### ❌ The dmesg command
+You can download a file from the internat using the `wget` command followed by an URL. By example: `wget https://linuxhint.com/download_files_linux_command_line/` this command downloads a file from the internet. On the output of the terminal you can see that they first get connected to the website, then send a HTTP request and finally the file gets saved as index.html .
+
+### ✅ The dmesg command
 
 *Describe in your own words what the `dmesg` command does. Give an example and a partial output.*
+
+The `dmesg` is used to print or control the kernel ring buffer.
+Default: display all messages from the kernel ring buffer, output: "[    0.026294]  Microsoft 4.4.0-18362.1049-Microsoft 4.4.35"
 
 ### ❌ Checksums
 
@@ -231,14 +264,22 @@ Mark challenges using a ✅ once they are finished.
 
 *What is the use of this hash?*
 
-### ❌ The printenv command
+### ✅ The printenv command
 
 *Describe in your own words what the `printenv` command does.*
 
-### ❌ IP Address
+If you specify an environment variable after the `printenv` command, it will print the name and value for that variable. If you don't specify an ENV it will print the name and value for all the ENVs.
+
+### ✅ IP Address
 
 *Find the IP address of your WiFi interface. What command did you use?*
 
-### ❌ IP of Sivir Server
+You can use the command `hostname -I` to simply display the IP address of the host in the terminal.
+If you make use of the command `ip address`, then you will get much more information about IP addresses. The IP address of my WiFi interface can be found at the "wifi 0" section: next to "inet" the IPv4 IP address is specified, and next to "inet6" the IPv6 address is specified.
+
+### ✅ IP of Sivir Server
 
 *What is the IP address of the internal server `sivir.devbit.be`? Make sure you are connected to the `Devbit` network.*
+
+The IP address of the internal server is 192.168.150.1, this can be found by using one of the following commands: `nslookup sivir.devbit.be` or `dig sivir.devbit.be`.
+The output of that command will also show you the IP address of the website, which is: 172.16.10.5. To find the IP address of that website you can also use the `host sivir.devbit.be` command or you can ping to the website with the command: `ping sivir.devbit.be`.
