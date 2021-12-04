@@ -634,39 +634,70 @@ Try to solve the challenges without using google. Better to use the man-pages to
 
 Mark challenges using a ✅ once they are finished.
 
-### ❌ Authentication Log
+### ✅ Authentication Log
 
 *There is a file on the system that logs authentication changes and failures. Can you guess where it can be found? Provide the path to the file.*
 
-### ❌ Apt Source List
+/var/log
+
+### ✅ Apt Source List
 
 *The apt tool uses a configuration file which specifies in which repositories it should look for packages. Its called the apt `sources.list` file. Can you guess where it can be found? Provide the path to the file.*
 
-### ❌ Tmp Filesystem
+/etc/apt
+
+### ✅ Tmp Filesystem
 
 *Create a file called `hello` in `/tmp`. Restart your linux distro using `reboot`. Where is the file? What happened?*
 
-### ❌ Timestamps
+The file is gone. ´tmp´ stands for temporary, so everything you create or do in this directory will erase itself once you reboot.
+
+### ✅ Timestamps
 
 *Create a file called `first-of-many` in your home directory. Use `nano` to add some content to the file. Now list the details of the file such as the size and when it was last modified.*
 
-### ❌ No space for spaces
+´´´bash
+touch first-of-many
+nano first-of-many
+ls -l first-of-many
+´´´
+
+-rw-rw-r-- 1 michiel michiel 43 Dec  4 18:58 first-of-many
+
+### ✅ No space for spaces
 
 *Try to create a file called `second try` (with the space included) using the command `touch second try` in your home directory. What happened? Why did this happen? How can you actually achieve creating a file with a space in its name?*
 
-### ❌ The root
+when using the command: ´touch second try´ you respectively create two files named: 'second' and 'try'.
+To create a file with a space in its name their are two options:
+with quotes: ´touch "second try"´
+with escape character: ´touch second\ try
+
+### ✅ The root
 
 *Try to create a directory `/backups` (under the root of the filesystem). Why is it failing?*
 
+Because we do not have the permission to make a directory under the root of the filesystem.
+
 *Now use `sudo` to create the directory. Try creating a file called `README.md` within this `/backups` directory. Can you do it? Why / Why not?*
 
-### ❌ Bash RC
+It's only possible to create the file using sudo. This is good otherwise everybody could create files under the root and this should be avoided, letting only people who got sudo rights creating directories and files is good practice.
+
+### ✅ Bash RC
 
 *In your home directory you will find a file called `.bashrc`. Create a backup of that file called `.bashrc.bak`.*
 
-### ❌ Sym Linking
+´´´bash
+cp .bashrc .bashrc.bak
+´´´
+
+### ✅ Sym Linking
 
 *What does the tool `ln` allow you to do? Use it to create such a link in your home directory called `secrets` to the file `/etc/passwd`. Now use the `cat` tool to open the file `secrets`. What do you see? What happened?*
+
+the tool ln allows you to create a link to a target as follows: ´ln [target] [link name]´.
+
+command: ´ln /etc/passwd secrets´ , this command creates a link called secrets to /etc/passwd. So when using cat on 'secrets' the contents of /etc/passwd are printed to the terminal. 
 
 ### ❌ SD Card
 

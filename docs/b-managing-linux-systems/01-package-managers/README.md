@@ -269,11 +269,25 @@ Find all the info you need in the man-pages. Document the commands you used for 
 
 Mark challenges using a ✅ once they are finished.
 
-### ❌ Cowsay
+### ✅ Cowsay
 
 *Download the `.deb` package for `cowsay` and install it using `dpkg`. You can find the package at [https://packages.debian.org/sid/all/cowsay/download](https://packages.debian.org/sid/all/cowsay/download).*
 
 *Run it once it's installed. What does it do ?*
+
+It generates an ASCII picture of a cow saying something provided by the user. For example: With the input "cowsay debian" you get the following output:
+::: output
+<pre>
+ ________
+< debian >
+ --------
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+</pre>
+:::
 
 ### ❌ Nmap
 
@@ -281,7 +295,7 @@ Mark challenges using a ✅ once they are finished.
 
 *Port scan the server `sivir.devbit.be`. Make sure you are connected to the `Devbit` network. What services are running on this machine?*
 
-### ❌ NodeJS
+### ✅ NodeJS
 
 *Install `snap` using `apt`. Next use `snap` to install `nodejs`.*
 
@@ -294,6 +308,8 @@ console.log("Hello World from JavaScript");
 With the following command: "snap install nodejs",
 This is the output: "Interacting with snapd is not yet supported on Windows Subsystem for Linux.
 This command has been left available for documentation purposes only."
+
+So I installed nodejs with apt, then I created a script.js file and after entering the command "node script.js" I got the following output: "Hello World from JavaScript"
 
 ### ❌ Dhcpdump
 

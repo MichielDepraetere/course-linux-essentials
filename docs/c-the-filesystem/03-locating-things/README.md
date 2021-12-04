@@ -294,6 +294,8 @@ Make sure to redirect the `permission denied` errors to `/dev/null` for all sear
 
 *Find the file `kernel.log`.*
 
+Cannot be found on wsl.
+
 #### ❌ .bashrc
 
 *Find the files `.bashrc`.*

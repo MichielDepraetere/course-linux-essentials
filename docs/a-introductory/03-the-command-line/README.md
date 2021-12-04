@@ -285,13 +285,13 @@ Mark challenges using a ✅ once they are finished.
 
 **Describe in your own words what the `whoami` command does.**
 
-The `whoami` command prints your current username to the terminal.
+The `whoami` command prints your user-id to the terminal.
 
 ### ✅ The uptime command
 
 **Describe in your own words what the `uptime` command does.**
 
-It tells you the time, runtime of the program, number of users and load average.
+It tells you the time, runtime of the program, number of users currently logged in and the system load averages for the past 1, 5, and 15 minutes.
 
 ### ✅ Help on ls
 
@@ -309,7 +309,7 @@ With the 'ls -a' or the 'ls --all' command you can list hidden files. Hidden fil
 
 **Describe in your own words what the `man` command does.**
 
-With the 'man' command you can request manual pages. You can add arguments to man to display the manual page associated with each of these arguments.
+With the 'man' command you can request manual pages. You can add arguments after man to display the manual page associated with the given argument.
 
 ### ✅ What shells are available
 

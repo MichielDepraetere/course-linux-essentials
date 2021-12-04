@@ -256,13 +256,19 @@ You can download a file from the internat using the `wget` command followed by a
 The `dmesg` is used to print or control the kernel ring buffer.
 Default: display all messages from the kernel ring buffer, output: "[    0.026294]  Microsoft 4.4.0-18362.1049-Microsoft 4.4.35"
 
-### ❌ Checksums
+### ✅ Checksums
 
 *Go to the website of Raspberry Pi - [https://www.raspberrypi.org/software/operating-systems](https://www.raspberrypi.org/software/operating-systems) and download the Raspberry Pi OS image using the `wget` command line tool. Now check if the SHA-256 checksum complies with the one being advertised on the website.*
 
+The checksum complies with the one on the website.
+
 *What tool did you use to calculate the checksum? Demonstrate its usage.*
 
+The input: "sha256sum 2021-10-30-raspios-bullseye-armhf-lite.zip", gives the following output: "008d7377b8c8b853a6663448a3f7688ba98e2805949127a1d9e8859ff96ee1a9  2021-10-30-raspios-bullseye-armhf-lite.zip"
+
 *What is the use of this hash?*
+
+SHA256 hash values provide information about the integrity of a file, for example, they can protect against manipulated programs.
 
 ### ✅ The printenv command
 
