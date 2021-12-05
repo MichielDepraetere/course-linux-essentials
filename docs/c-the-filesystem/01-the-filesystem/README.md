@@ -656,11 +656,11 @@ The file is gone. ´tmp´ stands for temporary, so everything you create or do i
 
 *Create a file called `first-of-many` in your home directory. Use `nano` to add some content to the file. Now list the details of the file such as the size and when it was last modified.*
 
-´´´bash
+```bash
 touch first-of-many
 nano first-of-many
 ls -l first-of-many
-´´´
+```
 
 -rw-rw-r-- 1 michiel michiel 43 Dec  4 18:58 first-of-many
 
@@ -668,10 +668,10 @@ ls -l first-of-many
 
 *Try to create a file called `second try` (with the space included) using the command `touch second try` in your home directory. What happened? Why did this happen? How can you actually achieve creating a file with a space in its name?*
 
-when using the command: ´touch second try´ you respectively create two files named: 'second' and 'try'.
+when using the command: `touch second try` you respectively create two files named: 'second' and 'try'.
 To create a file with a space in its name their are two options:
-with quotes: ´touch "second try"´
-with escape character: ´touch second\ try
+with quotes: `touch "second try"`
+with escape character: `touch second\ try`
 
 ### ✅ The root
 
@@ -687,9 +687,9 @@ It's only possible to create the file using sudo. This is good otherwise everybo
 
 *In your home directory you will find a file called `.bashrc`. Create a backup of that file called `.bashrc.bak`.*
 
-´´´bash
+```bash
 cp .bashrc .bashrc.bak
-´´´
+```
 
 ### ✅ Sym Linking
 
@@ -697,7 +697,7 @@ cp .bashrc .bashrc.bak
 
 the tool ln allows you to create a link to a target as follows: ´ln [target] [link name]´.
 
-command: ´ln /etc/passwd secrets´ , this command creates a link called secrets to /etc/passwd. So when using cat on 'secrets' the contents of /etc/passwd are printed to the terminal. 
+command: `ln /etc/passwd secrets` , this command creates a link called secrets to /etc/passwd. So when using cat on 'secrets' the contents of /etc/passwd are printed to the terminal.
 
 ### ❌ SD Card
 
