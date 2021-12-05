@@ -379,6 +379,16 @@ Try to solve the challenges without using google. Better to use the man-pages to
 
 Mark challenges using a ✅ once they are finished.
 
-### ❌ Etcetera
+### ✅ Etcetera
 
 *Who is the owner of the `/etc` directory on the system? What are the permissions on this directory? Why can you list the content of this directory?*
+
+`drwxr-xr-x  1 root root    512 Dec  4 14:41 etc`
+
+The owner of the /etc directory is root.
+
+The permissions are as follows:
+the user has full control (read, write and execute),
+group users and others can read and traverse the directory but cannot create files in it (read and execute).
+
+I can list the content of this directory because 'others' have read permissions.
