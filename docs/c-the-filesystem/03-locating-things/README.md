@@ -258,60 +258,94 @@ Try to solve the challenges without using google. Better to use the man-pages to
 
 Mark challenges using a ✅ once they are finished.
 
-### ❌ Locate
+### ✅ Locate
 
 *Install the `locate` command and update the index database.*
 
+```bash
+sudo apt install locate
+sudo updatedb
+```
+
 *Locate the following files on your system:*
 
-* `sudoers.dist`
-* the configuration file `ssh_config`
-* `auth.log`
+* `sudoers.dist` /usr/share/doc/sudo/examples/sudoers.dist
+* the configuration file `ssh_config` /etc/ssh/ssh_config
+* `auth.log`  find: ‘auth.log’: No such file or directory
 
-### ❌ Python man-pages
+### ✅ Python man-pages
 
 *Use the `whereis` tool to determine the location of the man-pages of `python`.*
 
-### ❌ Python man-pages
+cmd: `whereis -l python`
+output: `man: /usr/share/info`
+
+### ✅ Find binary
 
 *Use the `whereis` tool to determine the location of the `find` binary.*
 
-### ❌ Which
+find: /usr/bin/find
+
+### ✅ Which
 
 *What is the location of the following commands for the current user:*
 
-* `passwd`
-* `locate`
-* `fdisk`
+* `passwd`  /usr/bin/passwd
+* `locate`  /usr/bin/locate
+* `fdisk`   /usr/sbin/fdisk
 
 *Why are the location of `passwd` and `fdisk` different? What is `fdisk` used for?*
+
+/bin is generally an ordinary executable program, and/sbin is mostly for system management programs and service programs.
+
+`fdisk` is used to manipulate the disk partition table.
 
 ### Use find for the following challenges
 
 Make sure to redirect the `permission denied` errors to `/dev/null` for all searches unless specified otherwise.
 
-#### ❌ kernel.log
+#### ✅ kernel.log
 
 *Find the file `kernel.log`.*
 
+cmd: `find / -name kernel.log 2>/dev/null`
 Cannot be found on wsl.
 
-#### ❌ .bashrc
+#### ✅ .bashrc
 
 *Find the files `.bashrc`.*
+cmd: `find / -name .bashrc 2>/dev/null`
 
-#### ❌ System Configuration Files
+```bash
+Output:
+/etc/skel/.bashrc
+/home/barry/.bashrc
+/home/bond/.bashrc
+/home/michiel/.bashrc
+/home/steve/.bashrc
+```
+
+#### ✅ System Configuration Files
 
 *Search for files that end with the extension `.conf` and contain a filename with the keyword `system` in the `/etc` directory.*
+
+cmd: `find /etc -name "*system*.conf" 2>/dev/null`
+Output: `/etc/systemd/system.conf`
 
 #### ❌ User Readable Files
 
 *What option can we use on `find` to make sure the current user can read the file? Don't use the `-perm` option. There is a better option. Give a nice example.*
 
-#### ❌ Altered Log Files
+`find / -name readable 2>/dev/null -exec chmod u+r '{}' \;`
+
+#### ✅ Altered Log Files
 
 *Find all log files in `/var/log` that were modified in the last 24 hours. Make sure to only include files and not directories. Now extend the command to perform a long listing human readable `ls` for each file.*
 
-#### ❌ Steal All Logs
+`find /var/log -name "*.log*" -type f -mtime 0 2>/dev/null -exec ls -lh '{}' \;`
+
+#### ✅ Steal All Logs
 
 *Create a directory `logs` in `/tmp` and copy all `*.log` files you can find on the system to that location.*
+
+cmd: `find / -name "*.log*" -type f 2>/dev/null -exec cp {} /tmp/logs \;`

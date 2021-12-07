@@ -611,8 +611,6 @@ Mark challenges using a ✅ once they are finished.
 ```bash
 #!/usr/bin/env bash
 
-echo hello world
-
 while [ 1 ]
 do
     date
@@ -620,17 +618,31 @@ do
 done
 ```
 
-### ❌ Available Memory
+### ✅ Available Memory
 
 *Output the available system memory together with the current date in the following format:*
 
-```
+```bash
 [Thu 14 May 2020 11:12:55 AM CEST] MemAvailable:   28439572 kB
 ```
 
 *The available memory can be found in the file `/proc/meminfo`. Use the `grep` tool to filter out the line with MemAvailable.*
 
-### ❌ Fetching Github Keys
+```bash
+CODE:
+#!/usr/bin/env bash
+
+mem_free=$(grep MemFree /proc/meminfo)
+
+mem_free=`echo $mem_free | sed -e 's/^[[:space:]]*//'`
+
+echo "[$(date)] $mem_free"
+
+OUTPUT:
+[Mon Dec  6 23:01:11 CET 2021] MemFree: 1576592 kB
+```
+
+### ✅ Fetching Github Keys
 
 *Create a script that fetches the public SSH keys of a user on GitHub and displays them in the terminal. This can be accomplished by using the curl tool to access the endpoint `https://github.com/<username>.keys`, where `<username>` is an existing github username.*
 
@@ -651,10 +663,57 @@ Fetching Keys
 ...
 ```
 
+```bash
+SCRIPT:
+#!/usr/bin/env bash
+
+if [ $# -eq 0 ]; then
+        echo -n "Please enter GitHub username: "
+        read username
+        curl https://github.com/$username.keys
+else
+        curl https://github.com/$1.keys
+fi
+```
+
 ### ❌ DHCP Traffic
 
 *Create a script that filters DHCP network traffic and outputs matching MAC-Addresses, IP-Addresses and Hostnames.*
 
-### ❌ Backups
+### ✅ Backups
 
 *Choose a directory on your system (best to choose one in your home-dir). Create a script that archives this directory in a `.tar.gz` tarball file. Add a timestamp in the name of the output file.*
+
+*CODE:*
+
+```bash
+#!/usr/bin/env bash
+
+if [ $# -eq 0 ]; then
+        echo -n "Please enter directory to archive: "
+        read directory
+        tar -czvf $(date +"%d-%m-%y")_$directory.tar.gz $directory
+else
+        tar -czvf $(date +"%d-%m-%y")_$1.tar.gz $1
+fi
+```
+
+*Via the read command:*
+
+```bash
+./make_backup
+Please enter directory to archive: backmeup
+backmeup/
+```
+
+*Or via command line:*
+
+```bash
+./make_backup backmeupto
+```
+
+```bash
+ls -l *_backmeup*.gz
+-rw-rw-r-- 1 michiel michiel 119 Dec  7 13:19 07-12-21_backmeup.tar.gz
+-rw-rw-r-- 1 michiel michiel 119 Dec  7 13:20 07-12-21_backmeupto.tar.gz
+```
