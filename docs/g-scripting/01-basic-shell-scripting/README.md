@@ -608,6 +608,8 @@ Mark challenges using a ✅ once they are finished.
 
 *Create a script that output the date every 10 seconds. Use the `sleep` command to wait between calls to the `date` command.*
 
+*SCRIPT:*
+
 ```bash
 #!/usr/bin/env bash
 
@@ -628,8 +630,9 @@ done
 
 *The available memory can be found in the file `/proc/meminfo`. Use the `grep` tool to filter out the line with MemAvailable.*
 
+*SCRIPT:*
+
 ```bash
-CODE:
 #!/usr/bin/env bash
 
 mem_free=$(grep MemFree /proc/meminfo)
@@ -637,8 +640,11 @@ mem_free=$(grep MemFree /proc/meminfo)
 mem_free=`echo $mem_free | sed -e 's/^[[:space:]]*//'`
 
 echo "[$(date)] $mem_free"
+```
 
-OUTPUT:
+*OUTPUT:*
+
+```bash
 [Mon Dec  6 23:01:11 CET 2021] MemFree: 1576592 kB
 ```
 
@@ -663,8 +669,9 @@ Fetching Keys
 ...
 ```
 
+*SCRIPT:*
+
 ```bash
-SCRIPT:
 #!/usr/bin/env bash
 
 if [ $# -eq 0 ]; then
@@ -679,6 +686,8 @@ fi
 ### ✅ DHCP Traffic
 
 *Create a script that filters DHCP network traffic and outputs matching MAC-Addresses, IP-Addresses and Hostnames.*
+
+*SCRIPT:*
 
 ```bash
 #!/usr/bin/env bash
@@ -732,7 +741,7 @@ done
 
 *Choose a directory on your system (best to choose one in your home-dir). Create a script that archives this directory in a `.tar.gz` tarball file. Add a timestamp in the name of the output file.*
 
-*CODE:*
+*SCRIPT:*
 
 ```bash
 #!/usr/bin/env bash
