@@ -6,7 +6,7 @@ module.exports = {
       {text: 'Toledo', link: 'https://toledo.kuleuven.be/portal'},
       {text: 'DevBit Courses', link: 'https://www.devbit.courses/'},
       {text: 'Report Issue', link: 'https://github.com/BioBoost/course_linux_essentials/issues'},
-      {text: 'Challenges', link: 'https://github.com/BioBoost/challenges-linux-essential'}
+      // {text: 'Challenges', link: 'https://github.com/BioBoost/challenges-linux-essential'}
     ],
     sidebar: [
       {
@@ -48,25 +48,25 @@ module.exports = {
           '/c-the-filesystem/03-locating-things/',
         ]
       },
-      // {
-      //   title: 'Making Linux Your Own',   // required
-      //   path: '/d-making-linux-your-own/',      // optional, which should be a absolute path.
-      //   collapsable: false, // optional, defaults to true
-      //   sidebarDepth: 1,    // optional, defaults to 1
-      //   children: [
-      //     '/d-making-linux-your-own/01-making-linux-your-own/',
-      //   ]
-      // },
-      // {
-      //   title: 'Command Line Hacking',   // required
-      //   path: '/e-command-line-hacking/',      // optional, which should be a absolute path.
-      //   collapsable: false, // optional, defaults to true
-      //   sidebarDepth: 1,    // optional, defaults to 1
-      //   children: [
-      //     // TODO: '/e-command-line-hacking/01-chaining-and-redirection/',
-      //     // '/11-text-manipulation/',
-      //   ]
-      // },
+      {
+        title: 'Making Linux Your Own',   // required
+        path: '/d-making-linux-your-own/',      // optional, which should be a absolute path.
+        collapsable: false, // optional, defaults to true
+        sidebarDepth: 1,    // optional, defaults to 1
+        children: [
+          '/d-making-linux-your-own/01-making-linux-your-own/',
+        ]
+      },
+      {
+        title: 'Command Line Hacking',   // required
+        path: '/e-command-line-hacking/',      // optional, which should be a absolute path.
+        collapsable: false, // optional, defaults to true
+        sidebarDepth: 1,    // optional, defaults to 1
+        children: [
+          '/e-command-line-hacking/01-chaining-and-redirection/',
+          // '/11-text-manipulation/',
+        ]
+      },
       {
         title: 'Servers and Services',   // required
         path: '/f-services/',      // optional, which should be a absolute path.
@@ -74,8 +74,8 @@ module.exports = {
         sidebarDepth: 1,    // optional, defaults to 1
         children: [
           '/f-services/01-remote-access/',
+          '/f-services/02-docker-for-linux/',
           // WebServer, NAS, Samba, ...
-          // Docker for Linux
         ]
       },
       {
@@ -85,22 +85,23 @@ module.exports = {
         sidebarDepth: 1,    // optional, defaults to 1
         children: [
           '/g-scripting/01-basic-shell-scripting/',
-      //     // TODO: '/g-scripting/02-cron-jobs/',
+          '/g-scripting/02-cron-jobs/',
       //     // TODO: '/g-scripting/03-systemd/',
         ]
       },
-      // {
-      //   title: 'Security and Protection',   // required
-      //   path: '/h-security-and-protection/',      // optional, which should be a absolute path.
-      //   collapsable: false, // optional, defaults to true
-      //   sidebarDepth: 1,    // optional, defaults to 1
-      //   children: [
-      //     // Firewall
-      //     // Backups (include creating tar archives and such)
-      //     // OpenVPN
-      //     // ...
-      //   ]
-      // },
+      {
+        title: 'Security and Protection',   // required
+        path: '/h-security-and-protection/',      // optional, which should be a absolute path.
+        collapsable: false, // optional, defaults to true
+        sidebarDepth: 1,    // optional, defaults to 1
+        children: [
+          '/h-security-and-protection/01-uncomplicated-firewall/',
+          // Firewall
+          // Backups (include creating tar archives and such)
+          // OpenVPN
+          // ...
+        ]
+      },
       // Not sure about how to call this chapter. Or maybe should be split up.
       {
         title: 'Guides',
@@ -130,6 +131,7 @@ module.exports = {
         children: [
           ['http://bashrcgenerator.com', '.bashrc PS1 generator'],
           ['https://explainshell.com', 'explainshell.com'],
+          ['https://crontab.guru/', 'crontab guru'],
         ]
       },
     ],
@@ -172,6 +174,15 @@ module.exports = {
     ['container', {
       type: 'insight',
       defaultTitle: 'Key Insight',
+    }],
+    ['vuepress-plugin-code-copy', {
+      // selector: String,
+      align: 'bottom',
+      // color: '#DC322F',
+      // backgroundTransition: Boolean,
+      // backgroundColor: String,
+      // successText: String,
+      staticIcon: true,
     }],
   ],
 }

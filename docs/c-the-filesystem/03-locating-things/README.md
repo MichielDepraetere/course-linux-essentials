@@ -348,4 +348,10 @@ Output: `/etc/systemd/system.conf`
 
 *Create a directory `logs` in `/tmp` and copy all `*.log` files you can find on the system to that location.*
 
+<<<<<<< HEAD
 cmd: `find / -name "*.log*" -type f 2>/dev/null -exec cp {} /tmp/logs \;`
+=======
+#### ❌ Markdown README files
+
+*Find all `README.md` files on your system. Can you make it so the case of the filename does not matter? In other words, you should also be able to find `readme.md`, `Readme.md`, `readme.MD`, ...*
+>>>>>>> 9f80879facf0b7581f4f79408793830483e183e1
