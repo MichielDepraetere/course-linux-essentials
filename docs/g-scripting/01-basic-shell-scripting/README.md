@@ -676,9 +676,57 @@ else
 fi
 ```
 
-### ❌ DHCP Traffic
+### ✅ DHCP Traffic
 
 *Create a script that filters DHCP network traffic and outputs matching MAC-Addresses, IP-Addresses and Hostnames.*
+
+```bash
+#!/usr/bin/env bash
+
+buffer=()
+
+dhcpdump -i wlo1 | 
+while read -r line 
+do 
+  # fill buffer with usefull data
+  if echo ${line} | grep -q "IP:"; then
+    buffer=$line
+  fi
+
+  # Check messege type
+  if echo ${line} | grep -q "DHCP message type"; then
+    arr=(${line})
+    messageType=${arr[8]}
+
+    ip_mac=($buffer)
+    case "$messageType" intee command
+      "(DHCPRELEASE)")
+        echo "Client ${} with mac ${ip_mac[2]} requesting to release ${ip_mac[1]}"
+      ;;
+
+      "(DHCPDISCOVER)")
+        echo "Client with mac ${ip_mac[2]} Discovering network"
+      ;;
+
+      "(DHCPREQUEST)")
+        echo "Client requesting to use offered address"
+      ;;
+
+      "(DHCPACK)")
+        echo "Client with mac ${ip_mac[5]} now has ip address ${ip_mac[4]}"
+      ;;
+
+      "(DHCPOFFER)")
+        echo "Dhcp server offering address ${ip_mac[4]} to ${ip_mac[5]}"
+      ;;    
+    esac
+
+    # Clear buffer
+    buffer=()
+
+  fi
+done
+```
 
 ### ✅ Backups
 
