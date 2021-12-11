@@ -183,14 +183,96 @@ Try to solve the challenges without using google. Better to use the man-pages to
 
 Mark challenges using a ✅ once they are finished.
 
-### ❌ Enable Firewall
+### ✅ Enable Firewall
 
 *Install and enable the ufw service on your Raspberry Pi.*
 
+```bash
+sudo apt install ufw
+sudo systemctl start ufw
+sudo systemctl enable ufw
+```
+
 *Enable incoming traffic for ssh from any host.*
+
+```bash
+sudo ufw allow ssh
+```
 
 *Set the default rule to allow outgoing and deny incoming connections.*
 
-### ❌ Setup Apache
+```bash
+sudo ufw default allow outgoing
+sudo ufw default deny incoming
+sudo ufw enable
+```
+
+### ✅ Setup Apache
 
 *Install and enable the apache webserver. Make sure to enable http connections to the Raspberry Pi. Test it out by surfing to your Raspberry Pi using a webbrowser.*
+
+*Enable http:*
+
+´´´bash
+sudo ufw allow 80
+´´´
+
+*Install apache:*
+
+```bash
+sudo apt update
+sudo apt upgrade
+sudo apt install apache2
+systemctl status apache2
+```
+
+*locate index.html file:*
+
+```bash
+cat /etc/apache2/sites-available/000-default.conf
+```
+
+Look for the 'DocumentRoot' in the output:
+
+::: output
+<pre>
+DocumentRoot /var/www/html
+</pre>
+:::
+
+*modify index.html:*
+
+```bash
+cd /var/www/html
+sudo chown maikel:maikel .
+sudo chown maikel:maikel index.html
+rm index.html
+touch index.html
+wget https://www.raspberrypi.org/app/uploads/2011/10/Raspi-PGB001.png
+nano index.html
+```
+
+*new index.html:*
+
+```bash
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome to maikel's Raspberry Pi!!</title>
+<style>
+    body {
+        width: 35em;
+        margin: 0 auto;
+        font-family: Tahoma, Verdana, Arial, sans-serif;
+    }
+</style>
+</head>
+<body>
+<h1>Welcome to maikel's Raspberry Pi!!</h1>
+<p>Hello world. This website is being served from Apache on my Raspberry Pi.</a>
+<img src="Raspi-PGB001.png" width="500px"/>
+</body>
+</html>
+```
+
+![apache browser](./img/apache2.PNG)
