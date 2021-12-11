@@ -275,4 +275,4 @@ nano index.html
 </html>
 ```
 
-![apache browser](./img/apache2.PNG)
+![apache website](./img/apache2.PNG)
