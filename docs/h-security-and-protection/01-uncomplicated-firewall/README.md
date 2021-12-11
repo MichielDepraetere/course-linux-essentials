@@ -213,9 +213,9 @@ sudo ufw enable
 
 *Enable http:*
 
-´´´bash
+```bash
 sudo ufw allow 80
-´´´
+```
 
 *Install apache:*
 
@@ -234,11 +234,13 @@ cat /etc/apache2/sites-available/000-default.conf
 
 Look for the 'DocumentRoot' in the output:
 
-::: output
-<pre>
+```bash
+  ...
+
 DocumentRoot /var/www/html
-</pre>
-:::
+
+  ...
+```
 
 *modify index.html:*
 
