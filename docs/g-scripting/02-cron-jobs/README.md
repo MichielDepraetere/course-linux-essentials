@@ -159,6 +159,6 @@ Mark challenges using a ✅ once they are finished.
 *Create a cron-job that will backup your user directory to a `tar.gz` archive file every day at a specific time. Choose the time yourself.*
 
 ```bash
-#make a backup of home directory everyday at 8PM
-0 20 * * * sudo tar -czvf /home/michiel.tar.gz /home/michiel
+#make a backup of home directory everyday at 4PM
+0 16 * * * tar -czvf /tmp/backup/maikel.tar.gz /home/maikel
 ```
