@@ -414,21 +414,130 @@ Try to solve the challenges without using google. Better to use the man-pages to
 
 Mark challenges using a ✅ once they are finished.
 
-### ❌ Dotfiles
+### ✅ Dotfiles
 
 *Setup your own dotfiles. Make the repo public.*
 
-### ❌ Installation Script
+*Repo setup + dotbot config:*
+
+```bash
+mkdir dotfiles
+cd dotfiles
+git init
+git submodule add https://github.com/anishathalye/dotbot
+cp dotbot/tools/git-submodule/install .
+touch install.conf.yaml
+```
+
+*add following content:*
+
+```bash
+- defaults:
+    link:
+      relink: true
+
+- clean: ['~']
+
+- link:
+    ~/.gitconfig: configs/git/gitconfig
+    ~/.bashrc: configs/bash/bashrc
+
+- shell:
+  - [git submodule update --init --recursive, Installing submodules]
+```
+
+*Structuring config files + installing dotfiles:*
+
+```bash
+mkdir -p configs/bash
+mkdir -p configs/git
+mv ~/.gitconfig configs/git/gitconfig
+mv ~/.bashrc configs/bash/bashrc
+cd ~/dotfiles
+./install
+```
+
+*Now create a new public repo on github and push the dotfiles directory:*
+
+```bash
+git remote add origin git@github.com:MichielDepraetere/PI_dotfiles.git
+git branch -M main
+git push -u origin main
+```
+
+### ✅ Installation Script
 
 *Create an installation script for the tools and libraries you use most. Add the script to your dotfiles.*
 
-### ❌ neofetch
+```bash
+cd ~/dotfiles
+mkdir scripts
+touch scripts/rpi
+chmod u+x scripts/rpi
+nano scripts/rpi
+```
+
+*basic script:*
+
+```bash
+#!/usr/bin/env bash
+
+function pause() {
+   read -p "$* [ENTER TO CONTINUE]"
+}
+
+pause "Ready to install some tools, libraries, ... for a development machine ?"
+
+# Just add the commands below to start installing tools, dependencies, ...
+sudo apt update
+sudo apt install git -y
+sudo apt install snapd -y
+sudo apt install curl -y
+sudo snap install node --classic --channel=16
+sudo apt install build-essential -y
+
+# The end
+pause "All done - best to reboot after rest is done"
+```
+
+*run the script:*
+
+```bash
+cd ~/dotfiles
+./scripts/wsl
+```
+
+### ✅ neofetch
 
 *Add neofetch to your install script.*
 
-### ❌ @vue/cli
+```bash
+sudo apt update
+sudo apt install neofetch
+nano ~/.bashrc
+```
+
+*add to bottom of script:*
+
+```bash
+# Run neofetch every time we launch a terminal
+neofetch
+```
+
+### ✅ @vue/cli
 
 *Add @vue/cli as a global install to your script.*
+
+```bash
+cd ~/dotfiles
+nano scripts/rpi
+```
+
+*Add the following line:*
+
+```bash
+npm install -g @vue/cli
+```
 
 ### ❌ Conda
 
@@ -449,6 +558,10 @@ sudo mv gcc-arm-embedded /opt
 
 *Make sure to add the `~/.mbed/.mbed` config file to your dotfiles.*
 
-### ❌ Alias for mbed
+### ✅ Alias for mbed
  
 *Create an alias `mbedc` that compiles an mbed project, flashes the target and starts up the serial terminal at a baudrate of 115200.*
+
+```bash
+alias mbedc='mbed compile -f --sterm --baudrate 115200'
+```

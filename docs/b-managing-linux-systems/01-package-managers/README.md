@@ -350,11 +350,24 @@ It generates an ASCII picture of a cow saying something provided by the user. Fo
 </pre>
 :::
 
-### ❌ Nmap
+### ✅ Nmap
 
 *Install the `nmap` package using `apt`.*
 
 *Port scan the server `sivir.devbit.be`. Make sure you are connected to the `Devbit` network. What services are running on this machine?*
+
+```bash
+sudo apt install nmap
+nmap sivir.devbit.be
+```
+
+::: output
+<pre>
+Starting Nmap 7.70 ( https://nmap.org ) at 2021-12-12 17:07 GMT
+Note: Host seems down. If it is really up, but blocking our ping probes, try -Pn
+Nmap done: 1 IP address (0 hosts up) scanned in 11.24 seconds
+</pre>
+:::
 
 ### ✅ NodeJS
 
@@ -376,6 +389,12 @@ So I installed nodejs with apt, then I created a script.js file and after enteri
 
 *Install the `dhcpdump` and try to capture some DHCP traffic in the network. Work together with another student and try to capture the DHCP request of his/her laptop. Find out what the MAC Address is and check it using the `ip` or `ipconfig` tool.*
 
-### ❌ MQTT
+### ✅ MQTT
 
 *Find a command line tool that allows you to publish messages to an MQTT broker. Use it to send your name to the topic `linux/students`. Use the broker `mqtt.devbit.be`.*
+
+```bash
+sudo apt install mosquitto
+sudo apt install mosquitto_pub
+mosquitto_pub -r -h "[mqtt.devbit.be]" -t [linux/students] -m "[Michiel]"
+```
